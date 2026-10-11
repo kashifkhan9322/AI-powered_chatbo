@@ -1,0 +1,14 @@
+(() => {
+ const launcher=document.getElementById("chat-launcher"), panel=document.getElementById("chat-panel");
+ const closeButton=document.getElementById("close-chat"), input=document.getElementById("chat-input");
+ const form=document.getElementById("chat-form"), body=document.getElementById("chat-body");
+ const suggestions=document.getElementById("suggestions"); let busy=false;
+ function toggleChat(force){const open=typeof force==="boolean"?force:!panel.classList.contains("open");panel.classList.toggle("open",open);launcher.classList.toggle("open",open);launcher.setAttribute("aria-expanded",String(open));panel.setAttribute("aria-hidden",String(!open));if(open)setTimeout(()=>input.focus(),120);}
+ ["open-chat","hero-chat","bottom-chat"].forEach(id=>document.getElementById(id).addEventListener("click",()=>toggleChat(true)));
+ launcher.addEventListener("click",()=>toggleChat());closeButton.addEventListener("click",()=>toggleChat(false));
+ function addMessage(text,role){const row=document.createElement("div");row.className=`message-row ${role==="user"?"user-row":"bot-row"}`;if(role!=="user"){const av=document.createElement("div");av.className="mini-avatar";av.textContent="✦";row.appendChild(av);}const wrap=document.createElement("div");wrap.className="bubble-wrap";const bubble=document.createElement("div");bubble.className="bubble";bubble.textContent=text;const time=document.createElement("small");time.textContent=new Date().toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"});wrap.append(bubble,time);row.appendChild(wrap);body.appendChild(row);body.scrollTop=body.scrollHeight;}
+ function typing(){const row=document.createElement("div");row.className="message-row bot-row";row.id="typing-indicator";const av=document.createElement("div");av.className="mini-avatar";av.textContent="✦";const bubble=document.createElement("div");bubble.className="bubble typing";bubble.innerHTML="<span></span><span></span><span></span>";row.append(av,bubble);body.appendChild(row);body.scrollTop=body.scrollHeight;}
+ async function send(message){const clean=message.trim();if(!clean||busy)return;if(suggestions)suggestions.remove();addMessage(clean,"user");input.value="";busy=true;typing();try{const r=await fetch("/api/chat",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({message:clean})});const data=await r.json();document.getElementById("typing-indicator")?.remove();if(!r.ok)throw new Error(data.error||"The request could not be completed.");addMessage(data.reply,"bot");}catch(e){document.getElementById("typing-indicator")?.remove();addMessage(e.message||"I couldn't connect just now. Please try again.","bot");}finally{busy=false;input.focus();}}
+ form.addEventListener("submit",e=>{e.preventDefault();send(input.value);});
+ if(suggestions)suggestions.addEventListener("click",e=>{const b=e.target.closest("button[data-message]");if(b)send(b.dataset.message);});
+})();

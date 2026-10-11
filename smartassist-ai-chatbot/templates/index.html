@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="SmartAssist website support chatbot demo">
+<title>SmartAssist | Customer Support Chatbot</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<header class="site-header"><a class="brand" href="/"><span class="brand-mark">S</span>SmartAssist</a>
+<nav><a href="#features">Features</a><a href="#how-it-works">How it works</a><button class="nav-cta" id="open-chat">Ask a question ↗</button></nav></header>
+<main>
+<section class="hero"><div class="eyebrow"><span class="pulse"></span> VIRTUAL SUPPORT · AVAILABLE 24/7</div>
+<h1>Support that feels<br><span>instant and human.</span></h1>
+<p class="hero-copy">Meet SmartAssist, a lightweight website chatbot that answers common questions in seconds and helps visitors find the right information.</p>
+<div class="hero-actions"><button class="primary-button" id="hero-chat">Try the chatbot <span>↗</span></button><a class="secondary-link" href="#how-it-works">Explore how it works ↓</a></div>
+<div class="trust-row"><div class="avatar-stack"><span>A</span><span>S</span><span>+</span></div><div><strong>Always ready to help</strong><small>Demo experience · No account required</small></div></div>
+<div class="hero-orb orb-one"></div><div class="hero-orb orb-two"></div>
+<div class="floating-card"><span class="floating-icon">✦</span><div><strong>Quick answers</strong><small>Powered by intent matching</small></div><span class="live-dot"></span></div></section>
+<section class="metrics" id="features"><div><strong>24/7</strong><span>Always-on availability</span></div><div><strong>Instant</strong><span>Low-latency local replies</span></div><div><strong>11+</strong><span>Sample conversation intents</span></div><div><strong>API-ready</strong><span>Simple Flask endpoint</span></div></section>
+<section class="section" id="how-it-works"><div class="section-kicker">SIMPLE BY DESIGN</div><h2>Helpful answers.<br><span>Less friction.</span></h2><p class="section-copy">SmartAssist compares a visitor's question with curated examples, then returns the closest supported answer. When confidence is low, it says so instead of inventing a response.</p>
+<div class="feature-grid"><article class="feature-card"><div class="feature-icon violet">✦</div><h3>Intent-aware matching</h3><p>Recognizes common ways people ask about the same topic.</p></article><article class="feature-card"><div class="feature-icon blue">↯</div><h3>Fast by design</h3><p>Retrieval runs locally with no external AI API required.</p></article><article class="feature-card"><div class="feature-icon green">⌁</div><h3>Built to extend</h3><p>Add intents, connect a knowledge base, or integrate a live support workflow.</p></article></div></section>
+<section class="bottom-cta"><div><div class="section-kicker">HAVE A QUESTION?</div><h2>Let's get you an answer.</h2><p>Open the assistant and try a sample question.</p></div><button class="primary-button" id="bottom-chat">Start chatting <span>↗</span></button></section>
+</main>
+<footer><a class="brand" href="/"><span class="brand-mark">S</span>SmartAssist</a><span>Demo project · Replace sample business details before production.</span></footer>
+<button class="chat-launcher" id="chat-launcher" aria-label="Open chat" aria-expanded="false"><span class="launcher-chat">✦</span><span class="launcher-close">×</span><span class="launcher-ping"></span></button>
+<section class="chat-panel" id="chat-panel" aria-label="SmartAssist chat" aria-hidden="true"><header class="chat-header"><div class="bot-avatar">✦</div><div class="chat-title"><strong>SmartAssist</strong><span><i></i> Online · Virtual assistant</span></div><button class="icon-button" id="close-chat" aria-label="Close chat">×</button></header>
+<div class="chat-body" id="chat-body" aria-live="polite"><div class="day-divider"><span>START A CONVERSATION</span></div><div class="message-row bot-row"><div class="mini-avatar">✦</div><div class="bubble-wrap"><div class="bubble">Hi there! 👋 I'm SmartAssist. Ask me about services, pricing, business hours, refunds, or support.</div><small>Just now</small></div></div>
+<div class="suggestions" id="suggestions"><button data-message="What are your business hours?">Business hours</button><button data-message="How much does your service cost?">Pricing</button><button data-message="How can I contact support?">Contact support</button></div></div>
+<form class="chat-composer" id="chat-form"><label class="sr-only" for="chat-input">Type your message</label><input id="chat-input" type="text" maxlength="1000" placeholder="Type your message..." autocomplete="off" required><button type="submit" aria-label="Send message">↑</button></form><div class="chat-footnote">SmartAssist can make mistakes. Verify important details.</div></section>
+<script src="{{ url_for('static', filename='js/chatbot.js') }}" defer></script>
+</body></html>

@@ -1,0 +1,15 @@
+{
+  "intents": [
+    {"tag":"greeting","patterns":["hello","hi","hey","good morning","good afternoon","good evening","hi there"],"responses":["Hello! Welcome to SmartAssist. How can I help you today?","Hi there! I'm SmartAssist, your virtual support assistant. What can I help you with?"]},
+    {"tag":"goodbye","patterns":["bye","goodbye","see you later","talk to you later"],"responses":["Thanks for chatting with SmartAssist. Have a great day!","Goodbye! Feel free to come back if you need help."]},
+    {"tag":"thanks","patterns":["thanks","thank you","thanks a lot","that helped"],"responses":["You're welcome! Is there anything else I can help with?","Happy to help!"]},
+    {"tag":"services","patterns":["what services do you offer","tell me about your services","what can you do","what do you provide"],"responses":["SmartAssist can answer common questions about services, pricing, business hours, refunds, and support. Replace this sample answer with your organization's verified service information."]},
+    {"tag":"business_hours","patterns":["what are your business hours","when are you open","what time do you close","opening hours","are you open today"],"responses":["Sample hours: Monday to Friday, 9:00 AM–6:00 PM. Update intents.json with your organization's actual hours before launch."]},
+    {"tag":"pricing","patterns":["how much does your service cost","what is the price","tell me your pricing","how much do you charge","pricing plans"],"responses":["Our pricing depends on the service and plan. Replace this sample with current, approved pricing or a link to your pricing page."]},
+    {"tag":"contact_support","patterns":["how can i contact support","i need help","contact customer service","how do i reach your team","support email"],"responses":["Please contact your support team using the details on your official website. Replace this sample with a verified email address or support link."]},
+    {"tag":"refund_policy","patterns":["what is your refund policy","can i get a refund","how do refunds work","i want to return my purchase"],"responses":["Refund eligibility depends on the applicable policy. Add your approved refund terms and official policy link here."]},
+    {"tag":"order_status","patterns":["where is my order","track my order","order status","has my order shipped"],"responses":["I can't access individual order records in this demo. Please use your official order-tracking page or contact support."]},
+    {"tag":"privacy","patterns":["how do you use my data","privacy policy","is my information safe","what data do you collect"],"responses":["Please review the privacy policy on the organization's official website. This demo does not store chat messages by default."]},
+    {"tag":"human_agent","patterns":["talk to a human","speak to an agent","real person please","connect me to support"],"responses":["I can answer common questions, but this demo cannot transfer chats to a live agent. Add your approved support handoff method here."]}
+  ]
+}
